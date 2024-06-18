@@ -15,6 +15,8 @@ add_executable(cpp20 cpp20/shorthand.cpp
         cpp20/m_airline_ticket.cpp
 )
 
+add_executable(malloc_free malloc_free/main.cpp)
+
 # 构建module步骤(3.28版本 不知道后续能否简化)
 ## 构建库
 add_library(hello)
