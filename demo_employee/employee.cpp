@@ -3,12 +3,14 @@
 #include <format>
 using namespace std;
 
+// 匿名命名空间 防止暴露给其他文件
 namespace {
     const int DefaultStartingSalary{30'000};
 }
 
 namespace Records {
     Employee::Employee(const string& firstName, const string& lastName)
+        // m_salary 技巧 默认值不想暴露给外部时在定义文件设置匿名命名空间并赋值 可以暴露的在头文件声明时直接初始化
         : m_firstName(firstName), m_lastName(lastName), m_salary(DefaultStartingSalary) {
     }
 

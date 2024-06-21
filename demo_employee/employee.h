@@ -19,6 +19,7 @@ namespace Records {
         void display() const;
 
         void setFirstName(const std::string& firstName);
+        // 前const 表示返回值不可修改 后const 表示函数不可修改成员变量
         const std::string& getFirstName() const;
 
         void setLastName(const std::string& lastName);

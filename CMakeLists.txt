@@ -42,6 +42,8 @@ add_executable(demo_employee
         demo_employee/main.cpp
         demo_employee/employee.h
         demo_employee/employee.cpp
+        demo_employee/database.h
+        demo_employee/database.cpp
 )
 
 ## employee 编译段结束
