@@ -20,10 +20,15 @@ add_executable(demo_simple_class demo_simple_class/shorthand.cpp
 add_executable(malloc_free malloc_free/main.cpp)
 
 # 构建module步骤(3.28版本)
-# 目前不支持import std; 3.30版本更新后尝试
 ## 构建库
+add_library(my_str)
 add_library(hello)
 ## 添加模块到库
+target_sources(my_str
+        PUBLIC
+        FILE_SET CXX_MODULES FILES
+        demo_module/my_str.ixx
+)
 target_sources(hello
         PUBLIC
         FILE_SET CXX_MODULES FILES
@@ -34,7 +39,9 @@ add_executable(demo_module
         demo_module/main.cpp
 )
 ## 链接库
-target_link_libraries(demo_module hello)
+target_link_libraries(demo_module hello my_str)
+## hello库链接my_str库(hello 依赖 my_str)
+target_link_libraries(hello PUBLIC my_str)
 # 构建 demo_module结束
 
 ## employee 编译段
